@@ -10,10 +10,6 @@ import { CounterStateI } from '../state/counter.state';
 })
 export class CounterButtonsComponent implements OnInit {
 
-  // @Output() incrementO = new EventEmitter<number>();
-  // @Output() decrementO = new EventEmitter<number>();
-  // @Output() resetO = new EventEmitter<number>();
-
   // store name in appmodule: initialstate structure
   constructor(private _store: Store<{ counterStore: CounterStateI }>) { }
 
@@ -21,17 +17,14 @@ export class CounterButtonsComponent implements OnInit {
   }
 
   onIncrement() {
-    //this.incrementO.emit();
     this._store.dispatch(increment());
   }
 
   onDecrement() {
-    //this.decrementO.emit();
     this._store.dispatch(decrement());
   }
 
   onReset() {
-    //this.resetO.emit();
     this._store.dispatch(reset());
   }
 
