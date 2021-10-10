@@ -7,25 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CounterComponent implements OnInit {
 
-  count: number = 0;
+  // count: number = 0;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  inc(e) {
-    this.count++;
-    console.log(e)
-    console.log(this.count)
-  }
+  // inc(e) {
+  //   this.count++;
+  //   console.log(e)
+  //   console.log(this.count)
+  // }
 
-  dec() {
-    this.count--;
-  }
+  // dec() {
+  //   this.count--;
+  // }
 
-  res() {
-    this.count = 0;
-  }
+  // res() {
+  //   this.count = 0;
+  // }
 
 }
