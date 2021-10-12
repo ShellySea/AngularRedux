@@ -5,3 +5,5 @@ export const decrement = createAction('Dec');
 export const reset = createAction('Res');
 
 export const customIncrement = createAction('customInc', props<{ cnum: number }>());
+
+export const changeChannel = createAction('changeChannel');
