@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { postSelector } from '../state/posts.selector';
 import { PostsI, PostInterface } from '../state/posts.state';
 
 @Component({
@@ -13,9 +14,9 @@ export class PostListComponent implements OnInit {
   constructor(private _store: Store<{ postStore: PostsI }>) { }
 
   ngOnInit() {
-    this._store.select('postStore').subscribe((data: PostsI) => {
+    this._store.select(postSelector).subscribe(data => {
       console.log(data)
-      this.posts = data.posts
+      this.posts = data
     })
   }
 
