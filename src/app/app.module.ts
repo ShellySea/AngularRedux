@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { PostListComponent } from './components/posts/post-list/post-list.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,11 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({ counterStore: counterReducer })
+    StoreModule.forRoot({ counterStore: counterReducer }),
+    StoreDevtoolsModule.instrument({
+      //maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
