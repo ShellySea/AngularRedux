@@ -1,7 +1,8 @@
+import { AppState } from './../../../globalStore/app.state';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { postSelector } from '../state/posts.selector';
-import { PostsI, PostInterface } from '../state/posts.state';
+import { PostInterface } from '../state/posts.state';
 
 @Component({
   selector: 'app-post-list',
@@ -11,12 +12,12 @@ import { PostsI, PostInterface } from '../state/posts.state';
 export class PostListComponent implements OnInit {
 
   posts: PostInterface[];
-  constructor(private _store: Store<{ postStore: PostsI }>) { }
+  constructor(private _store: Store<AppState>) { }
 
   ngOnInit() {
     this._store.select(postSelector).subscribe(data => {
       console.log(data)
-      this.posts = data
+      this.posts = data;
     })
   }
 

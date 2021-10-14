@@ -1,3 +1,18 @@
-<ul *ngFor="let p of posts">
-  <li>{{p.title}}</li>
-</ul>
+<div class="mar">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of posts">
+        <th scope="row">{{p.id}}</th>
+        <td>{{p.title}}</td>
+        <td>{{p.description}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
