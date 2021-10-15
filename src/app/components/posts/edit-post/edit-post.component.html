@@ -1,4 +1,6 @@
 <div class="row">
+  <h2>Update Post</h2>
+  <hr />
   <div class="col-md-12">
     <form [formGroup]="editPostForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
@@ -7,7 +9,7 @@
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <input type="text" class="form-control" id="description" formControlName="description">
+        <textarea type="text" class="form-control" id="description" formControlName="description"></textarea>
       </div>
       <button type="submit" class="btn btn-primary" [disabled]="!editPostForm.valid">Update</button>
     </form>

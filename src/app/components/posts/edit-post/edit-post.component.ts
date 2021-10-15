@@ -17,21 +17,33 @@ export class EditPostComponent implements OnInit {
   editPostForm;
   postId: number;
   formData: any;
+  hit: boolean = false;
   constructor(private _fb: FormBuilder,
     private _actR: ActivatedRoute,
     private _store: Store<AppState>) { }
 
   ngOnInit() {
     this._actR.paramMap.subscribe(data => {
+      this.hit = true;
       this.postId = +(data.get('id'));
       this._store.select(postSelectorById, { id: this.postId }).subscribe(data => {
         this.formData = data;
-        this.editPostForm = this._fb.group({
-          title: [this.formData.title, [Validators.required]],
-          description: [this.formData.description, [Validators.required]]
-        })
+        if (data) {
+          this.editPostForm = this._fb.group({
+            title: [this.formData.title, [Validators.required]],
+            description: [this.formData.description, [Validators.required]]
+          })
+        } else {
+          this.editPostForm = this._fb.group({
+            title: ['', [Validators.required]],
+            description: ['', [Validators.required]]
+          })
+        }
       });
     });
+    if (!this.hit) {
+      console.log('Print')
+    }
   }
 
   onSubmit() {

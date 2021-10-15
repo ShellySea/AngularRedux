@@ -1,9 +1,10 @@
+import { PostInterface } from './../state/posts.state';
 import { AppState } from './../../../globalStore/app.state';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { postSelector } from '../state/posts.selector';
-import { PostInterface } from '../state/posts.state';
-import { deletePost } from '../state/posts.action';
+import { postSelector, postSelectorById } from '../state/posts.selector';
+import { deletePost, editPost } from '../state/posts.action';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -13,7 +14,8 @@ import { deletePost } from '../state/posts.action';
 export class PostListComponent implements OnInit {
 
   posts: PostInterface[];
-  constructor(private _store: Store<AppState>) { }
+  constructor(private _store: Store<AppState>,
+    private _router: Router) { }
 
   ngOnInit() {
     this._store.select(postSelector).subscribe(data => {
@@ -23,6 +25,7 @@ export class PostListComponent implements OnInit {
 
   delete(post: PostInterface) {
     this._store.dispatch(deletePost({ postDData: post }));
+    this._router.navigate(['/posts/add']);
   }
 
 }
