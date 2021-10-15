@@ -1,3 +1,4 @@
+import { EditPostComponent } from './components/posts/edit-post/edit-post.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CounterComponent } from './components/counter/counter/counter.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'add',
         component: AddPostComponent
+      },
+      {
+        path: 'edit/:id',
+        component: EditPostComponent
       }
     ]
   }

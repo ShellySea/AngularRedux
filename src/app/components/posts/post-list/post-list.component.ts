@@ -20,4 +20,8 @@ export class PostListComponent implements OnInit {
     })
   }
 
+  delete(post: PostInterface) {
+    console.log(post);
+  }
+
 }
