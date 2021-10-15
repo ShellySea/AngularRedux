@@ -1,7 +1,7 @@
 export interface PostInterface {
     title: string;
     description: string;
-    id: number;
+    id?: number;
 }
 
 export interface PostsI {
