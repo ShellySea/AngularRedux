@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { postSelector } from '../state/posts.selector';
 import { PostInterface } from '../state/posts.state';
+import { deletePost } from '../state/posts.action';
 
 @Component({
   selector: 'app-post-list',
@@ -21,7 +22,7 @@ export class PostListComponent implements OnInit {
   }
 
   delete(post: PostInterface) {
-    console.log(post);
+    this._store.dispatch(deletePost({ postDData: post }));
   }
 
 }

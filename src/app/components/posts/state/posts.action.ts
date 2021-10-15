@@ -7,4 +7,4 @@ export const addPost = createAction('ADDPOST', props<{ postData: PostInterface }
 
 export const editPost = createAction('EDITPOST', props<{ postEData: PostInterface }>());
 
-export const deletePost = createAction('DELETEPOST');
+export const deletePost = createAction('DELETEPOST', props<{ postDData: PostInterface }>());
