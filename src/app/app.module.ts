@@ -9,7 +9,6 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
-import { appReducer } from './globalStore/app.state';
 
 @NgModule({
   declarations: [
